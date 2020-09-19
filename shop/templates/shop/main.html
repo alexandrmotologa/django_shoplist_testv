@@ -1,0 +1,73 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'shop/main.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" href="{% url 'shop-home' %}">ShopL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'shop-home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'shop-order' %}">Order</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown09">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+{#      <form class="form-inline my-2 my-md-0">#}
+{#        <input class="form-control" type="text" placeholder="Search" aria-label="Search">#}
+{#      </form>#}
+    </div>
+        <div class="navbar-nav">
+            <a href="{% url 'reg' %}" class="btn btn-outline-secondary mr-2">Registration</a>
+            <a href="{% url 'user' %}" class="btn btn-outline-secondary">Login</a>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% if messages %}
+                    {% for mess in messages %}
+                        <div class="alert alert-success">
+                            {{ mess }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% block main_section %}
+                {% endblock %}
+            </div>
+        <aside class="col-md-4">
+            <div class="bg-success p-3 mb-3 rounded">
+                <h3><b>asdasdasd</b></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusantium amet at, blanditiis consequuntur corporis dolorem ducimus eius error harum iure labore nisi quas rerum sint.
+                    Aliquid aut veniam voluptates!</p>
+            </div>
+        </aside>
+        </div>
+    </main>
+
+</body>
+</html>
