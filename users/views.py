@@ -25,7 +25,7 @@ def register(request):
 def profile(request):
     if request.method == "POST":
         img_profile = ProfileImage(request.POST, request.FILES, instance=request.user.profile)
-        update_user = UserUpdateForm(request.POST, instance=request.user)
+        update_user = UserUpdateForm(instance=request.user)
 
         if update_user.is_valid() and img_profile.is_valid():
             update_user.save()
