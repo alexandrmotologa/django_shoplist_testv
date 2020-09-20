@@ -9,3 +9,4 @@ class Product(models.Model):
     date_published = models.DateField()
     date_add = models.DateTimeField(default=timezone.now)
     author_post = models.ForeignKey(User, on_delete=models.CASCADE)
+    cover = models.ImageField(default='cover.png', upload_to='cover')

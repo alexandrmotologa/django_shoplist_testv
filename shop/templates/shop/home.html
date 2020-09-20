@@ -1,9 +1,24 @@
 {% extends 'shop/main.html' %}
 {% block main_section %}
-    {% for post in product %}
-        <h2>{{ post.title }}</h2>
-        <p>{{  post.author }}</p>
-        <p>{{  post.description }}</p>
-        <p>{{  post.date_published }}</p>
+
+{% for post in product %}
+    <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+          <div class="col-auto d-none d-lg-block" style="text-align: center">
+            <img src="{{  post.cover.url }}" style="height: 300px; width: 200px;">
+            </div>
+        <h3 class="mb-0">{{ post.title }}</h3>
+          <div class="mb-1 text-muted">{{  post.date_published }}</div>
+          <strong class="d-inline-block mb-2 text-primary">{{  post.author }}</strong>
+        <p class="card-text mb-auto">{{  post.description }}</p>
+          <p><a class="btn btn-secondary" href="#" role="button">Add to My List »</a></p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
     {% endfor %}
 {% endblock main_section%}
