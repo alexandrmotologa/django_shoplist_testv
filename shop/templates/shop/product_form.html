@@ -1,0 +1,16 @@
+{% extends 'shop/main.html' %}
+{% load crispy_forms_tags %}
+{% block main_section %}
+
+    <div class="form-section">
+        <hr>
+        <h1>Add book</h1><br>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-outline-warning">Add book</button>
+        </form>
+        <hr>
+
+    </div>
+{% endblock main_section%}

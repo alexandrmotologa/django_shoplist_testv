@@ -1,0 +1,26 @@
+{% extends 'shop/main.html' %}
+{% block main_section %}
+    <a href="{% url 'shop-home' %}">Previous</a>
+    <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+          <div class="col-auto d-none d-lg-block" style="text-align: center">
+            <img src="{{  object.cover.url }}" style="height: 300px; width: 200px;">
+            </div>
+        <h3 class="mb-0">{{ object.title }}</h3>
+          <div class="mb-1 text-muted">{{  object.date_published }}</div>
+          <strong class="d-inline-block mb-2 text-primary">{{  object.author }}</strong>
+        <p class="card-text mb-auto">{{  object.description }}</p>
+          <p><a class="btn btn-secondary" href="#" role="button">Add to My List »</a></p>
+      </div>
+    </div>
+
+    <hr>
+    {%  if object.author_post == user %}
+        <a href="{% url 'product-update' object.id %}" class="btn btn-info">Update this book</a>
+        <a href="{% url 'product-delete' object.id %}" class="btn btn-danger">Delete this book</a>
+        <hr>
+    {% endif %}
+  </div> <!-- /container -->
+
+{% endblock main_section%}

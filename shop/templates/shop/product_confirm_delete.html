@@ -1,0 +1,15 @@
+{% extends 'shop/main.html' %}
+{% block main_section %}
+
+    <div class="form-section">
+        <hr>
+        <h1>Delete book {{ object.title }}</h1><br>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger">Delete book</button>
+            <a href="{% url 'product-detail' object.id %}">Cancel</a>
+        </form>
+        <hr>
+
+    </div>
+{% endblock main_section%}
